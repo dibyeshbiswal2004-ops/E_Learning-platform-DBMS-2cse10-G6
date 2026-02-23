@@ -1,0 +1,45 @@
+1. Entities 
+ *STUDENT
+
+Attributes
+:Student_id (Primary Key)
+First name
+Middle name
+Last name
+Phone_No
+Registration_date
+Student_Email
+
+2) ENROLLMENT
+
+Attributes:
+En_id (Primary Key)
+student_id (Foreign Key)
+Course_id (Foreign Key)
+Enrollment_date
+
+3) FACULTY
+
+Attributes:
+Faculty_id (Primary Key)
+Faculty_Name
+Faculty_Email
+Faculty_Qualification
+Faculty_exp
+
+4) ASSIGNMENT
+
+Attributes:
+Assignment_id (Primary Key)
+Title_Des
+Due_Date
+Course_id (Foreign Key)
+
+5) SUBMISSION
+
+Attributes:
+Submission_id (Primary Key)
+Assignment_id (Foreign Key)
+Student_id (Foreign Key)
+Submission_date
+Marks
