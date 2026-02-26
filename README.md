@@ -1,161 +1,114 @@
-﻿# E_Learning-platform-DBMS-2cse10-G6
- 🎓 E-Learning Platform – ER Diagram Design
+ E-Learning Platform (DBMS Project)
 
  📌 Project Overview
+This project represents an E-Learning Platform database designed using an ER Diagram.  
+The system manages Students, Faculty, Courses, Enrollments, Assignments, and Submissions.
 
-This repository contains the **Entity Relationship (ER) Diagram** for an **E-Learning Platform**.
-The diagram represents the structural design of the database system including entities, attributes, relationships, primary keys, and foreign keys.
-
-The system allows:
-
-* Students to enroll in courses
-* Faculty to manage courses and assignments
-* Students to submit assignments
-* Faculty to evaluate submissions
+The ER Diagram includes entities, attributes, relationships, primary keys, and cardinality.
 
 ---
 
-  ER Diagram Description
+ 🗂️ Entities and Attributes (As per ER Diagram)
 
-The ER diagram models the following core entities:
-
-* **Student**
-* **Course**
-* **Faculty**
-* **Enrollment**
-* **Assignment**
-* **Submission**
-
-It also resolves the **Many-to-Many relationship** between Student and Course using an associative entity called **Enrollment**.
-
----
-
- 🗂️ Entities and Attributes
-
-1️⃣ Student
-
-| Attribute Name    | Type             | Description          |
-| ----------------- | ---------------- | -------------------- |
-| Student_id (PK)   | Primary Key      | Unique ID of student |
-| First_name        | Simple Attribute | Student first name   |
-| Middle_name       | Simple Attribute | Student middle name  |
-| Last_name         | Simple Attribute | Student last name    |
-| Phone_no          | Simple Attribute | Contact number       |
-| Registration_date | Simple Attribute | Date of registration |
-| Student_Email     | Simple Attribute | Email address        |
-
-> **Note:** `Name` is a composite attribute divided into First, Middle and Last name.
+ 1️⃣ STUDENT
+- Student_id (Primary Key)
+- Phone.No
+- Registration_date
+- Student_Email
+- NAME (Composite Attribute)
+  - First_name
+  - Middle_name
+  - Last_Name
 
 ---
 
-2️⃣ Course
-
-| Attribute Name | Type        | Description         |
-| -------------- | ----------- | ------------------- |
-| Course_id (PK) | Primary Key | Unique ID of course |
-| Course_Name    | Attribute   | Name of the course  |
-
----
-
-3️⃣ Faculty
-
-| Attribute Name        | Type        | Description           |
-| --------------------- | ----------- | --------------------- |
-| Faculty_id (PK)       | Primary Key | Unique faculty ID     |
-| Faculty_Name          | Attribute   | Name of faculty       |
-| Faculty_Email         | Attribute   | Faculty email         |
-| Faculty_Qualification | Attribute   | Qualification details |
-| Faculty_exp           | Attribute   | Years of experience   |
+ 2️⃣ ENROLLMENT
+- En_id (Primary Key)
+- student_id (Foreign Key)
+- Course_id (Foreign Key)
+- Enrollment_date
 
 ---
 
-4️⃣ Enrollment (Associative Entity)
-
-| Attribute Name  | Type        | Description          |
-| --------------- | ----------- | -------------------- |
-| En_id (PK)      | Primary Key | Unique enrollment ID |
-| Student_id (FK) | Foreign Key | References Student   |
-| Course_id (FK)  | Foreign Key | References Course    |
-| Enrollment_date | Attribute   | Date of enrollment   |
-
-> This entity resolves the **Many-to-Many relationship** between Student and Course.
+ 3️⃣ FACULTY
+- Faculty_id (Primary Key)
+- Faculty_Name
+- Faculty_Email
+- Faculty_Qualification
+- Faculty_exp
 
 ---
 
-5️⃣ Assignment
-
-| Attribute Name     | Type        | Description                  |
-| ------------------ | ----------- | ---------------------------- |
-| Assignment_id (PK) | Primary Key | Unique assignment ID         |
-| Title_Desc         | Attribute   | Assignment title/description |
-| Due_Date           | Attribute   | Submission deadline          |
-| Course_id (FK)     | Foreign Key | References Course            |
+ 4️⃣ ASSIGNMENT
+- Assignment_id (Primary Key)
+- Title_Des
+- Due_Date
+- Course_id (Foreign Key)
 
 ---
 
- 6️⃣ Submission
-
-| Attribute Name     | Type        | Description           |
-| ------------------ | ----------- | --------------------- |
-| Submission_id (PK) | Primary Key | Unique submission ID  |
-| Assignment_id (FK) | Foreign Key | References Assignment |
-| Student_id (FK)    | Foreign Key | References Student    |
-| Submission_date    | Attribute   | Date of submission    |
-| Marks              | Attribute   | Marks obtained        |
+5️⃣ SUBMISSION
+- Submission_id (Primary Key)
+- Assignment_id (Foreign Key)
+- Student_id (Foreign Key)
+- Submission_date
+- Marks
 
 ---
 
-🔗 Relationships & Cardinality
+🔗 Relationships (As Shown in ER Diagram)
 
-| Relationship            | Type | Description                                  |
-| ----------------------- | ---- | -------------------------------------------- |
-| Student → Enrollment    | 1:M  | One student can enroll in multiple courses   |
-| Course → Enrollment     | 1:M  | One course can have multiple students        |
-| Course → Assignment     | 1:M  | One course can have multiple assignments     |
-| Faculty → Assignment    | 1:M  | One faculty can create multiple assignments  |
-| Assignment → Submission | 1:M  | One assignment can have multiple submissions |
-| Student → Submission    | 1:M  | One student can submit multiple assignments  |
+1. STUDENT **ENROLLS** in ENROLLMENT  
+   - Cardinality: M : M
 
----
+2. ENROLLMENT related to COURSE  
+   - Cardinality: M : M
 
-🔄 Database Design Concepts Used
+3. COURSE connected with FACULTY  
 
-* Primary Keys
-* Foreign Keys
-* Composite Attribute (Name)
-* Many-to-Many Resolution using Associative Entity
-* Referential Integrity
-* Normalized Structure (3NF Approx.)
+4. COURSE **HAS** ASSIGNMENT  
+   - Cardinality: 1 : M
+
+5. ENROLLMENT **SUBMITS** SUBMISSION  
+   - Cardinality: 1 : M
 
 ---
 
-🚀 System Workflow
+ 📊 Cardinality Summary
 
-1. Student registers on platform
-2. Student enrolls in course
-3. Faculty creates assignments
-4. Student submits assignments
-5. Faculty evaluates and assigns marks
+- One Course → Many Assignments  
+- One Enrollment → Many Submissions  
+- Many Students → Many Courses (via Enrollment)
 
 ---
 
-🛠️ Tools Used
-
-* ER Diagram Tool (Draw.io )
-* GitHub for version control
-
----
-
-## 📖 Purpose of This Project
-
-This ER Diagram serves as a conceptual database design for implementing a complete E-Learning Management System.
+ 🛠️ Tools Used
+- Draw.io (ER Diagram)
+- MySQL
+- VS Code
+- GitHub
 
 ---
 
-TEAM - 
-Ayush Rathore 
-Dibyesh biswal 
-Shubham Singh 
+ 📁 Project Files
+```
+E-Learning-Platform/
+│── ER_Diagram.drawio
+│── schema.sql
+│── README.md
+```
+
+---
+
+ 👨‍💻 Group Members
+Dibyesh Biswal
+Ayush Rathore
+Shubham Kumar Singh
 Tanmay Goyal
+
+
+
 ---
 
+## 📌 Conclusion
+This ER model demonstrates database design for an E-Learning Platform using entities, composite attributes, relationships, primary keys, foreign keys, and proper cardinality.
