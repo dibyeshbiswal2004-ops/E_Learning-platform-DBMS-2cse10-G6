@@ -1,0 +1,30 @@
+INSERT INTO Student VALUES
+(1, 'Ayush', 'Kumar', 'Rathore', '9876543210', '2024-01-10', 'ayush@gmail.com'),
+(2, 'Rahul', NULL, 'Sharma', '9876543211', '2024-01-12', 'rahul@gmail.com'),
+(3, 'Priya', NULL, 'Singh', '9876543212', '2024-01-15', 'priya@gmail.com'),
+(4, 'Ankit', NULL, 'Verma', '9876543213', '2024-01-20', 'ankit@gmail.com');
+
+
+INSERT INTO Faculty VALUES
+(101, 'Dr. Mehta', 'mehta@gmail.com', 'PhD', 10),
+(102, 'Prof. Sharma', 'sharma@gmail.com', 'MTech', 7);
+
+
+INSERT INTO Enrollment VALUES
+(1, 1, 201, '2024-02-01'),
+(2, 2, 201, '2024-02-02'),
+(3, 3, 202, '2024-02-03'),
+(4, 4, 202, '2024-02-04');
+
+
+INSERT INTO Assignment VALUES
+(1001, 'DBMS Assignment 1', '2024-03-10', 201, 101),
+(1002, 'DBMS Assignment 2', '2024-03-15', 201, 101),
+(1003, 'OS Assignment 1', '2024-03-20', 202, 102);
+
+
+INSERT INTO Submission VALUES
+(1, 1001, 1, '2024-03-09', 85),
+(2, 1001, 2, '2024-03-10', 78),
+(3, 1002, 1, '2024-03-14', 90),
+(4, 1003, 3, '2024-03-19', 88);
